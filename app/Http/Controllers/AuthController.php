@@ -28,6 +28,7 @@ class AuthController extends Controller
         // Return the generated token
         return [
             'token' => $user->createToken('authToken')->plainTextToken,
+            "user" => $user
         ];
     }
 
@@ -48,6 +49,16 @@ class AuthController extends Controller
         // Retornar un token en caso de éxito
         return response()->json([
             'token' => $user->createToken('authToken')->plainTextToken,
+            "user" => $user
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+
+        return [
+            "user" => "Cerraste Sesión"
+        ];
     }
 }
