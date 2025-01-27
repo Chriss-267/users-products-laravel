@@ -1,0 +1,113 @@
+Datos de prueba
+create_product:
+{
+		"id": 1,
+		"name": "test",
+		"description": "test",
+		"price": "100",
+		"stock": 100,
+		"category_id": 1,
+		"distributor_id": 1,
+		"status": "available"
+	}
+
+update:
+	{
+		"name": "tttt",
+		"description": "ttt",
+		"price": "100",
+		"stock": 100,
+		"status": "discontinued"
+	}
+
+
+product_categorie
+create:
+	{
+		"name": "tttt Turner",
+		"description": "ttt quo inventore rerum hic accusamus rerum sit."
+	}
+update:
+	{
+		"name": "xcx",
+		"description": "cccccc"
+	}
+
+
+orders
+create:
+{
+"distributor_id": 3,
+"total_amount": 10.50,	
+"status": "pending"
+}
+update:
+{
+"distributor_id": 1,
+"total_amount": 10.50,	
+"status": "delivered"
+}
+
+order_details
+create:
+{
+		"order_id": 5,
+		"product_id": 20,
+		"quantity": 4,
+		"unit_price": "23.04",
+		"created_at": null,
+		"updated_at": null
+	}
+update:
+{
+		"quantity": 2,
+		"unit_price": 23.04
+	}
+
+
+distributors
+create:
+	{
+		"name": "ttttttt",
+		"email": "tttt@graham.com",
+		"phone": "1-623-762-0000",
+		"address": "t t t t tt t t ",
+		"status": "active"
+	}
+update:
+	{
+		"name": "wwwww",
+		"email": "wwww@graham.com",
+		"phone": "1-623-762-0000",
+		"address": "t t t t tt t t ",
+		"status": "inactive"
+	}
+
+
+
+estos datos de prueba son agregados para que se puedan ingresar nuevos daatos y editar de una manera
+mas facil asi solo se copia y pega para luego cambiar los datos que desean ingresar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
