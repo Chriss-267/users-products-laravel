@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailsController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,8 @@ Route::post('orders-details/create',[OrderDetailsController::class, "store"]);
 Route::patch('orders-details/update/{id}',[OrderDetailsController::class, "update"]);
 Route::delete('orders-details/delete/{id}',[OrderDetailsController::class, "destroy"]);
 
+//rutas review(reseña)
+Route::post('review/create',[ReviewController::class, "store"]);
+Route::post('review/average/{id}',[ReviewController::class, "averageRating"]);
+Route::get('review/average', [ReviewController::class, 'averageRatingsPerProduct']);
+Route::get('review/best-rated',[ReviewController::class, "bestRatedProduct"]);
