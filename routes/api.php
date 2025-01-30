@@ -29,6 +29,7 @@ Route::get('products/show',[ProductController::class, "index"]);
 Route::post('products/create',[ProductController::class, "store"]);
 Route::patch('products/update/{id}',[ProductController::class, "update"]);
 Route::delete('products/delete/{id}',[ProductController::class, "destroy"]);
+Route::get('products/show/{id}', [ProductController::class, 'show']);
 
 //rutas de distributor
 Route::get('distributors/show',[DistributorController::class, "index"]);
