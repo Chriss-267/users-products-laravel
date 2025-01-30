@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegistroRequest;
-use App\Http\Requests\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -36,21 +37,19 @@ class AuthController extends Controller
     {
         $data = $request->validated();
 
-        // Buscar al usuario por correo electrónico
-        $user = User::where('email', $data['email'])->first();
 
-        // Verificar la contraseña
-        if (!$user || !Hash::check($data['password'], $user->password)) {
-            return response()->json([
-                'message' => 'Credenciales incorrectas.',
-            ], 401); // Código de estado HTTP 401: No autorizado
+        if(!Auth::attempt($data)){
+            return response([
+                "errors" => ["El email o el password son incorrectos"]
+            ], 422);
         }
 
-        // Retornar un token en caso de éxito
-        return response()->json([
-            'token' => $user->createToken('authToken')->plainTextToken,
+        //autenticar
+        $user = Auth::user();
+        return [
+            "token" => $user->createToken("token")->plainTextToken,
             "user" => $user
-        ]);
+        ];
     }
 
     public function logout(Request $request)

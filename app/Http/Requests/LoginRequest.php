@@ -21,8 +21,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email', // Asegura que el correo sea válido
-            'password' => 'required|min:8', // La contraseña debe tener al menos 8 caracteres
+            'email' => ["required", "email", "exists:users,email"], 
+            'password' => 'required'
         ];
     }
 
@@ -35,7 +35,7 @@ class LoginRequest extends FormRequest
             'email.required' => 'El campo de correo electrónico es obligatorio.',
             'email.email' => 'Debes proporcionar un correo electrónico válido.',
             'password.required' => 'La contraseña es obligatoria.',
-            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            "email.exists" => "Esa cuenta no existe",
         ];
     }
 }
